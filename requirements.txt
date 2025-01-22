@@ -1,0 +1,4 @@
+Django
+spotipy
+transformers
+python-dotenv

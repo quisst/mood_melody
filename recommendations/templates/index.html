@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<h1>오늘의 기분 테마송 추천</h1>
+<form method="post" action="{% url 'recommend' %}">
+    {% csrf_token %} {{ form.non_field_errors }}
+    <div
+        class="form-group{% if form.diary_entry.field.required %} required-field{% endif %}"
+    >
+        {{ form.diary_entry.label_tag }} {{ form.diary_entry }}
+    </div>
+    <div
+        class="form-group{% if form.genre.field.required %} required-field{% endif %}"
+    >
+        {{ form.genre.label_tag }} {{ form.genre }}
+    </div>
+    <div
+        class="form-group{% if form.duration.field.required %} required-field{% endif %}"
+    >
+        {{ form.duration.label_tag }} {{ form.duration }}
+    </div>
+    <div
+        class="form-group{% if form.year_range.field.required %} required-field{% endif %}"
+    >
+        {{ form.year_range.label_tag }} {{ form.year_range }}
+    </div>
+    <div
+        class="form-group{% if form.mood.field.required %} required-field{% endif %}"
+    >
+        {{ form.mood.label_tag }} {{ form.mood }} {{ form.mood.errors }}
+    </div>
+    <button type="submit">추천 받기</button>
+</form>
+{% endblock %}
